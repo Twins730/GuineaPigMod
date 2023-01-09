@@ -12,7 +12,6 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
@@ -74,6 +73,8 @@ public class GuineaPigEntity extends TameableEntity {
         data = super.onInitialSpawn(serverWorld, difficultyInstance, spawnReason, data, nbt);
         if(nbt != null && nbt.contains("GuineaVariantTag", 3)){
             this.setVariant(nbt.getInt("GuineaVariantTag"));
+            this.setTamed(nbt.getBoolean("GuineaTamedTag"));
+            this.setChild(nbt.getBoolean("GuineaChildTag"));
         }
         return data;
     }
@@ -140,6 +141,8 @@ public class GuineaPigEntity extends TameableEntity {
         }
         CompoundNBT compoundnbt = pouch.getOrCreateTag();
         compoundnbt.putInt("GuineaVariantTag", this.getVariant());
+        compoundnbt.putBoolean("GuineaTamedTag", this.isTamed());
+        compoundnbt.putBoolean("GuineaChildTag", this.isChild());
     }
 
 
