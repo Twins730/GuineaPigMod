@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "guineapigs:item/empty_guinea_pig_pouch"
+  }
+}

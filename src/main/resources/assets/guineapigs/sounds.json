@@ -1,0 +1,50 @@
+{
+  "guineapigs.entity.guinea_pig.squeak": {
+    "subtitle": "guineapigs.entity.guinea_pig.squeak",
+    "sounds": [
+      {
+        "name": "guineapigs:entity/guinea_pig/squeak1",
+        "stream": true
+      }
+    ]
+  },
+  "guineapigs.entity.guinea_pig.wheek": {
+    "subtitle": "guineapigs.entity.guinea_pig.wheek",
+    "sounds": [
+      {
+        "name": "guineapigs:entity/guinea_pig/wheek1",
+        "stream": true
+      },
+      {
+        "name": "guineapigs:entity/guinea_pig/wheek2",
+        "stream": true
+      },
+      {
+        "name": "guineapigs:entity/guinea_pig/wheek3",
+        "stream": true
+      }
+    ]
+  },
+  "guineapigs.entity.guinea_pig.call": {
+    "subtitle": "guineapigs.entity.guinea_pig.call",
+    "sounds": [
+      {
+        "name": "guineapigs:entity/guinea_pig/call",
+        "stream": true
+      }
+    ]
+  },
+  "guineapigs.entity.guinea_pig.death": {
+    "subtitle": "guineapigs.entity.guinea_pig.death",
+    "sounds": [
+      {
+        "name": "guineapigs:entity/guinea_pig/death",
+        "stream": true
+      },
+      {
+        "name": "guineapigs:entity/guinea_pig/death2",
+        "stream": true
+      }
+    ]
+  }
+}

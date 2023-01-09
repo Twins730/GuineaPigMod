@@ -1,0 +1,34 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:carrot",
+    "minecraft:golden_carrot",
+    "minecraft:beetroot",
+    "minecraft:grass",
+    "minecraft:melon",
+    "minecraft:pumpkin",
+    "minecraft:dandelion",
+    "minecraft:apple",
+    "minecraft:golden_apple",
+    {
+      "id": "#forge:fruits/tomato",
+      "required": false
+    },
+    {
+      "id": "#forge:fruits/strawberry",
+      "required": false
+    },
+    {
+      "id": "#forge:vegetables/cucumber",
+      "required": false
+    },
+    {
+      "id": "#forge:vegetables/lettuce",
+      "required": false
+    },
+    {
+      "id": "#forge:vegetables/pepper",
+      "required": false
+    }
+  ]
+}
