@@ -101,7 +101,7 @@ public class GuineaPigEntity extends TameableEntity {
         }
 
         if(this.isTamed()){
-            if(TEMPTATION_ITEMS.test(itemstack)){
+            if(TEMPTATION_ITEMS.test(itemstack) && this.getHealth() < this.getMaxHealth()){
                 if (!player.abilities.isCreativeMode) {
                     itemstack.shrink(1);
                 }
@@ -122,8 +122,9 @@ public class GuineaPigEntity extends TameableEntity {
             if(item == ItemInit.ALFALFA.get()){
                 if (!player.abilities.isCreativeMode) {
                     itemstack.shrink(1);
+                    this.playSound(SoundEvents.ENTITY_PARROT_EAT, 1.0F, 1.0F);
                 }
-                if (this.rand.nextInt(9) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                if (this.rand.nextInt(5) == 0) {
                     this.setTamedBy(player);
                     this.navigator.clearPath();
                     this.world.setEntityState(this, (byte)7);
@@ -264,14 +265,12 @@ public class GuineaPigEntity extends TameableEntity {
 
         }
 
-
-
         /**
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
         public boolean shouldExecute() {
-            return super.shouldExecute();
+            return super.shouldExecute() && this.guineaPigEntity.isSitting();
         }
     }
 }
