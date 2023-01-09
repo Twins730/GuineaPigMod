@@ -75,6 +75,9 @@ public class GuineaPigEntity extends TameableEntity {
             this.setVariant(nbt.getInt("GuineaVariantTag"));
             this.setTamed(nbt.getBoolean("GuineaTamedTag"));
             this.setChild(nbt.getBoolean("GuineaChildTag"));
+            if (this.isTamed()) {
+                this.setOwnerId(UUID.fromString(nbt.getString("GuineaOwnerUUIDTag")));
+            }
         }
         return data;
     }
@@ -142,6 +145,9 @@ public class GuineaPigEntity extends TameableEntity {
         CompoundNBT compoundnbt = pouch.getOrCreateTag();
         compoundnbt.putInt("GuineaVariantTag", this.getVariant());
         compoundnbt.putBoolean("GuineaTamedTag", this.isTamed());
+        if (isTamed()) {
+            compoundnbt.putString("GuineaOwnerUUIDTag", this.getOwnerId().toString());
+        }
         compoundnbt.putBoolean("GuineaChildTag", this.isChild());
     }
 
@@ -265,7 +271,7 @@ public class GuineaPigEntity extends TameableEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            return super.shouldExecute() && !guineaPigEntity.isTamed();
+            return super.shouldExecute();
         }
     }
 }
