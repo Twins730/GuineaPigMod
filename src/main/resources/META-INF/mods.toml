@@ -1,29 +1,31 @@
-modLoader="javafml"
-loaderVersion="[36,)"
+modLoader="javafml" #mandatory
+loaderVersion="[43,)"
 license="All rights reserved"
+[[mods]] #mandatory
+modId="guineapigs" #mandatory
+version="${file.jarVersion}" #mandatory
+ # A display name for the mod
+displayName="Guinea Pig Mod" #mandatory
+logoFile="guineapigs.png" #optional
 
-[[mods]]
-modId="guineapigs"
-version="${file.jarVersion}"
-displayName="Guinea Pig Mod"
-logoFile="examplemod.png"
-
-credits="Java, Mojang, Twins730"
-authors="Twins730 & Twins037"
+credits="Thanks for this example mod goes to Java" #optional
+# A text field displayed in the mod UI
+authors="Twins730, Twins037" #optional
+# The description text for the mod (multi line!) (#mandatory)
 description='''
-    Adds adorable guinea pigs to minecraft!
+Adds Adorable Guinea Pigs to Minecraft
 '''
-# dependencies
-[[dependencies.guineapigs]]
-    modId="forge"
-    mandatory=true
-    versionRange="[36,)"
+
+[[dependencies.guineapigs]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[43,)" #mandatory
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.guineapigs]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,1.17)"
+    versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"

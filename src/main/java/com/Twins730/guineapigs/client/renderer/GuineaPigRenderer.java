@@ -3,10 +3,11 @@ package com.Twins730.guineapigs.client.renderer;
 import com.Twins730.guineapigs.GuineaPigMod;
 import com.Twins730.guineapigs.client.model.GuineaPigModel;
 import com.Twins730.guineapigs.objects.entity.GuineaPigEntity;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.entity.SheepRenderer;
+import net.minecraft.resources.ResourceLocation;
 
 public class GuineaPigRenderer extends MobRenderer<GuineaPigEntity, GuineaPigModel<GuineaPigEntity>> {
 
@@ -18,15 +19,15 @@ public class GuineaPigRenderer extends MobRenderer<GuineaPigEntity, GuineaPigMod
             new ResourceLocation(GuineaPigMod.MOD_ID,"textures/entity/guinea_pig/white_black_guinea.png"),
             new ResourceLocation(GuineaPigMod.MOD_ID,"textures/entity/guinea_pig/white_guinea.png")};
 
-    public GuineaPigRenderer(EntityRendererManager rendererManager) {
-        super(rendererManager, new GuineaPigModel<>(), 0.2f);
+    public GuineaPigRenderer(EntityRendererProvider.Context context) {
+        super(context, new GuineaPigModel<>(context.bakeLayer(GuineaPigModel.LAYER_LOCATION)), 0.3f);
     }
 
     @Override
-    protected void applyRotations(GuineaPigEntity guineaPig, MatrixStack stack, float ageInTicks, float rotationYaw, float partialTicks) {
-        super.applyRotations(guineaPig,stack,ageInTicks,rotationYaw,partialTicks);
-        if(guineaPig.isSitting()){
-            if(guineaPig.isChild()){
+    protected void setupRotations(GuineaPigEntity guineaPig, PoseStack stack, float p_115319_, float p_115320_, float p_115321_) {
+        super.setupRotations(guineaPig, stack, p_115319_, p_115320_, p_115321_);
+        if(guineaPig.isInSittingPose()){
+            if(guineaPig.isBaby()){
                 stack.translate(0, -0.04, 0);
             } else {
                 stack.translate(0, -0.12, 0);
@@ -35,7 +36,7 @@ public class GuineaPigRenderer extends MobRenderer<GuineaPigEntity, GuineaPigMod
     }
 
     @Override
-    public ResourceLocation getEntityTexture(GuineaPigEntity entity) {
+    public ResourceLocation getTextureLocation(GuineaPigEntity entity) {
         return GUINEA_PIG_TEXTURE[entity.getVariant()];
     }
 }
